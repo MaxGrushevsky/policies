@@ -1,0 +1,31 @@
+# Keeps this fork in step with tenvar/policies: merges upstream/main every hour (and on demand).
+# A merge (not a reset) keeps this fork's own commits. If a conflict ever appears the run fails and nothing is pushed.
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge upstream
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/tenvar/policies.git
+          git fetch upstream main
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "Already up to date"
+          else
+            git merge --no-edit upstream/main
+            git push origin HEAD:main
+          fi
