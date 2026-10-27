@@ -9,7 +9,7 @@ must not replace documents for another game. Existing policy URLs remain valid.
 | --- | --- |
 | Gem Pop | `/gempop/privacy.html` |
 | Tower Blocks: World Builder | `/towerblocks/`, `/towerblocks/privacy.html` |
-| Flappy Plane: Sky Hangar | `/flappyplane/`, `/flappyplane/privacy.html` |
+| Flappy Plane: Sky Hangar | `/flappyplane/`, `/flappyplane/privacy.html`, `/flappyplane/privacy-ads.html` (with ads) |
 | Twirl | `/twirl/`, `/twirl/privacy.html` |
 | Lumen: Lights Out | `/lumen/`, `/lumen/privacy.html` |
 | Burst Grid | `/burstgrid/`, `/burstgrid/privacy.html` |
