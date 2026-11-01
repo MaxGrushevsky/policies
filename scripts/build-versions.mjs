@@ -34,8 +34,15 @@ function parse(file) {
 function localTitle(doc, body) {
   const h1 = body.match(/<h1>([^<]*)<\/h1>/)?.[1];
   const game = doc.title.split(' — ')[0];
-  return h1 && game !== doc.title ? `${game} — ${h1}` : doc.title;
+  if (!h1 || game === doc.title) return doc.title;
+  return h1.includes(game) ? h1 : `${game} — ${h1}`;
 }
+
+// Source pages link each other as privacy.html / support.html; point those at this version's pages.
+// A privacy source that is not itself privacy.html (e.g. privacy-ads.html) links privacy.html as the older policy.
+const fixLinks = (body, base, lang, privacyHref = `${base}/${lang}/`) => body
+  .replace(/href="privacy\.html"/g, `href="${privacyHref}"`)
+  .replace(/href="support\.html"/g, `href="${base}/${lang}/support/"`);
 
 // Absolute links: the pages work with or without a trailing slash (Vercel serves /a/b and /a/b/ alike).
 function page({ lang, title, description, nav, body }) {
@@ -62,20 +69,22 @@ function build(game, version, docs) {
   const support = docs.support ? parse(docs.support) : null;
   const base = `/${game}/${version}`;
   const langs = [...privacy.articles.keys()];
-  const langNav = suffix => [`<a href="/${game}/">← Game documents</a>`,
+  const home = existsSync(path.join(root, game, 'index.html')) ? `<a href="/${game}/">← Game documents</a>` : '<a href="/">← All games</a>';
+  const langNav = suffix => [home,
     ...langs.map(l => `<a href="${base}/${l}/${suffix}" lang="${l}">${LANG_NAMES[l] ?? l}</a>`)].join('');
 
   for (const lang of langs) {
     const out = path.join(dir, lang);
     mkdirSync(out, { recursive: true });
-    const body = privacy.articles.get(lang);
+    const olderPolicy = path.basename(docs.privacy) === 'privacy.html' ? undefined : `/${game}/privacy.html`;
+    const body = fixLinks(privacy.articles.get(lang), base, lang, olderPolicy);
     writeFileSync(path.join(out, 'index.html'), page({
       lang, title: localTitle(privacy, body), description: privacy.description, nav: langNav(''), body,
     }));
     if (!support) continue;
     // Support pages exist in fewer languages; fall back to English rather than a 404.
     const supLang = support.articles.has(lang) ? lang : 'en';
-    const supBody = support.articles.get(supLang) ?? support.articles.values().next().value;
+    const supBody = fixLinks(support.articles.get(supLang) ?? support.articles.values().next().value, base, lang);
     mkdirSync(path.join(out, 'support'), { recursive: true });
     writeFileSync(path.join(out, 'support', 'index.html'), page({
       lang: supLang, title: localTitle(support, supBody), description: support.description, nav: langNav('support/'),
@@ -86,7 +95,7 @@ function build(game, version, docs) {
   const list = langs.map(l => `<p><a href="${base}/${l}/" lang="${l}">${LANG_NAMES[l] ?? l}</a>${support ? ` · <a href="${base}/${l}/support/" lang="${l}">Support</a>` : ''}</p>`).join('\n');
   writeFileSync(path.join(dir, 'index.html'), page({
     lang: 'en', title: `${privacy.title} — ${version}`, description: privacy.description,
-    nav: `<a href="/${game}/">← Game documents</a>`,
+    nav: home,
     body: `<h1>${privacy.title}</h1>\n<p>Version ${version}</p>\n<section>\n${list}\n</section>`,
   }));
   console.log(`built ${game}/${version}: ${langs.join(', ')}`);
