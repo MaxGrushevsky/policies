@@ -14,7 +14,7 @@ whatever `<article id>` blocks the source page has.
 
 `sources/` holds translated source pages that the live pages don't have (support pages in all
 8 languages, Gem Pop and the Tower Blocks 1.3 policy). They are inputs for the script only and are
-kept apart so the upstream pages (synced hourly from tenvar/policies) stay untouched.
+kept apart so the hand-written live pages stay untouched.
 
 ## Adding a version
 
