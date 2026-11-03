@@ -1,6 +1,9 @@
 # Tenvar Games — game policies and agreements
 
-Public site: https://tenvar.github.io/
+Public site: https://policies-phi-bay.vercel.app/ (Vercel, deployed from `main`).
+
+This repository is the primary source of the policies. It is no longer synced from
+`tenvar/policies`: edit and publish here.
 
 Keep each game's documents in its own stable directory. Documents for one game
 must not replace documents for another game. Existing policy URLs remain valid.
@@ -23,7 +26,7 @@ To add a game:
 3. Link the game from the root `index.html`.
 4. State the app name, developer, real contact address, effective date and actual
    data practices. Update each game separately when SDKs or features change.
-5. Push to `main`; GitHub Pages serves the repository root. Verify the public
+5. Push to `main`; Vercel redeploys the repository root. Verify the public
    document URL before entering it in a store console.
 
 The site uses static HTML and CSS, with no custom analytics or advertising
