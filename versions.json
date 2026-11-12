@@ -1,24 +1,51 @@
 {
   "twirl": {
-    "1.1": { "privacy": "twirl/privacy.html", "support": "twirl/support.html" }
+    "1.1": {
+      "privacy": "twirl/privacy.html",
+      "support": "twirl/support.html"
+    }
   },
   "towerblocks": {
-    "1.0": { "privacy": "towerblocks/privacy.html", "support": "sources/towerblocks/support.html" },
-    "1.3": { "privacy": "sources/towerblocks/privacy-ads.html", "support": "sources/towerblocks/support.html" }
+    "1.0": {
+      "privacy": "towerblocks/privacy.html",
+      "support": "sources/towerblocks/support.html"
+    },
+    "1.3": {
+      "privacy": "sources/towerblocks/privacy-ads.html",
+      "support": "sources/towerblocks/support.html"
+    }
   },
   "flappyplane": {
-    "1.0": { "privacy": "flappyplane/privacy.html", "support": "sources/flappyplane/support.html" }
+    "1.0": {
+      "privacy": "flappyplane/privacy.html",
+      "support": "sources/flappyplane/support.html"
+    },
+    "1.2": {
+      "privacy": "sources/flappyplane/privacy-ads.html",
+      "support": "sources/flappyplane/support.html"
+    }
   },
   "lumen": {
-    "1.0": { "privacy": "lumen/privacy.html", "support": "sources/lumen/support.html" }
+    "1.0": {
+      "privacy": "lumen/privacy.html",
+      "support": "sources/lumen/support.html"
+    }
   },
   "burstgrid": {
-    "1.0": { "privacy": "burstgrid/privacy.html", "support": "sources/burstgrid/support.html" }
+    "1.0": {
+      "privacy": "burstgrid/privacy.html",
+      "support": "sources/burstgrid/support.html"
+    }
   },
   "numbermatch": {
-    "1.0": { "privacy": "numbermatch/privacy.html", "support": "sources/numbermatch/support.html" }
+    "1.0": {
+      "privacy": "numbermatch/privacy.html",
+      "support": "sources/numbermatch/support.html"
+    }
   },
   "gempop": {
-    "1.0": { "privacy": "sources/gempop/privacy.html" }
+    "1.0": {
+      "privacy": "sources/gempop/privacy.html"
+    }
   }
 }

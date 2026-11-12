@@ -41,7 +41,7 @@ function localTitle(doc, body) {
 // Source pages link each other as privacy.html / support.html; point those at this version's pages.
 // A privacy source that is not itself privacy.html (e.g. privacy-ads.html) links privacy.html as the older policy.
 const fixLinks = (body, base, lang, privacyHref = `${base}/${lang}/`) => body
-  .replace(/href="privacy\.html"/g, `href="${privacyHref}"`)
+  .replace(/href="privacy\.html(#[\w-]+)?"/g, (_, anchor = '') => `href="${privacyHref}${anchor}"`)
   .replace(/href="support\.html"/g, `href="${base}/${lang}/support/"`);
 
 // Absolute links: the pages work with or without a trailing slash (Vercel serves /a/b and /a/b/ alike).

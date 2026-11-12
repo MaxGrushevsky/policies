@@ -13,7 +13,7 @@ Languages: `en ru de es fr pt tr id` for every game (plus `zh` where the source 
 whatever `<article id>` blocks the source page has.
 
 `sources/` holds translated source pages that the live pages don't have (support pages in all
-8 languages, Gem Pop and the Tower Blocks 1.3 policy). They are inputs for the script only and are
+8 languages, Gem Pop, the Tower Blocks 1.3 and Flappy Plane 1.2 policies). They are inputs for the script only and are
 kept apart so the hand-written live pages stay untouched.
 
 ## Adding a version
