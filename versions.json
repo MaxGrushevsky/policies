@@ -3,6 +3,10 @@
     "1.1": {
       "privacy": "twirl/privacy.html",
       "support": "twirl/support.html"
+    },
+    "1.2": {
+      "privacy": "sources/twirl/privacy-1.2.html",
+      "support": "twirl/support.html"
     }
   },
   "towerblocks": {
