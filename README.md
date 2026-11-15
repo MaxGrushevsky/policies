@@ -17,6 +17,7 @@ must not replace documents for another game. Existing policy URLs remain valid.
 | Lumen: Lights Out | `/lumen/`, `/lumen/privacy.html` |
 | Burst Grid | `/burstgrid/`, `/burstgrid/privacy.html` |
 | Number Match | `/numbermatch/`, `/numbermatch/privacy.html` |
+| Noodlo | `/noodlo/`, `/noodlo/privacy.html` |
 
 To add a game:
 

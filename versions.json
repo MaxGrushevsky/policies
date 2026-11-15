@@ -51,5 +51,10 @@
     "1.0": {
       "privacy": "sources/gempop/privacy.html"
     }
+  },
+  "noodlo": {
+    "1.0": {
+      "privacy": "noodlo/privacy.html"
+    }
   }
 }

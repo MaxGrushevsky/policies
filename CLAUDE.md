@@ -16,7 +16,7 @@ Vercel публикует его из `main`: https://policies-phi-bay.vercel.ap
 - `<игра>/<версия>/<язык>/` и `<игра>/<версия>/<язык>/support/` — снимки, собираемые
   `node scripts/build-versions.mjs`; `<игра>/<версия>/` — список языков.
   Игры открывают `<URL версии><язык>/` (например `CONFIG.privacyPolicyUrl` в flappy-plane и tower-blocks).
-- Слаги: `flappyplane`, `towerblocks`, `numbermatch`, `twirl` (+ `gempop`, `lumen`, `burstgrid`).
+- Слаги: `flappyplane`, `towerblocks`, `numbermatch`, `twirl`, `noodlo` (+ `gempop`, `lumen`, `burstgrid`).
 
 ## Правила
 
